@@ -3,25 +3,25 @@ const express = require('express')
 const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
-const restaurant_list = require('./restaurant.json')
+const restaurantList = require('./restaurant.json')
 
 app.get('/', (req, res) => {
-  res.render('index', { restaurant: restaurant_list.results })
+  res.render('index', { restaurant: restaurantList.results })
 })
 
 app.get('/restaurants/:id', (req, res) => {
   // console.log(req.params.id)
-  const restaurantOne = restaurant_list.results.find(
+  const restaurant = restaurantList.results.find(
     restaurant => restaurant.id.toString() === req.params.id
   )
-  res.render('show', { restaurant: restaurantOne })
+  res.render('show', { restaurant })
 })
 
 app.get('/search', (req, res) => {
   // console.log('req.query', req.query)
   const keyword = req.query.keyword
-  const restaurants = restaurant_list.results.filter(restaurant => {
-    return restaurant.category.includes(keyword) || restaurant.name.includes(keyword)
+  const restaurants = restaurantList.results.filter(restaurants => {
+    return restaurants.category.includes(keyword) || restaurants.name.includes(keyword)
   })
   res.render('index', { restaurant: restaurants })
 })
