@@ -1,0 +1,46 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/all.css">
+</head>
+
+<h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
+<form action="/restaurants" method="POST" class=" text-center">
+  <div class="mb-1">
+    <label for="name" class="form-label">餐廳名稱</label>
+    <input type="text" id="name" class="col-auto" placeholder="餐廳名稱..." name="name" required />
+  </div>
+  <div class="mb-1">
+    <label for="name_en" class="form-label">英文店名</label>
+    <input type="text" id="name_en" class="col-auto" placeholder="英文名稱..." name="name_en" />
+  </div>
+  <div class="mb-1">
+    <label for="category" class="form-label">餐廳類型</label>
+    <input type="text" id="category" class="col-auto" placeholder="日式餐廳..." name="category" required />
+  </div>
+  <div class="mb-1">
+    <label for="image" class="form-label">餐廳照片</label>
+    <input type="text" id="image" class="col-auto" placeholder="照片連結..." name="image" />
+  </div>
+  <div class="mb-1">
+    <label for="location" class="form-label">餐廳地址</label>
+    <input type="text" id="location" class="col-auto" placeholder="新北市永和區..." name="location" required />
+  </div>
+  <div class="mb-1">
+    <label for="phone" class="form-label">餐廳電話</label>
+    <input type="text" id="location" class="col-auto" placeholder="02-22788397..." name="phone" required />
+  </div>
+  <div class="mb-1">
+    <label for="google_map" class="form-label">地圖連結</label>
+    <input type="text" id="google_map" class="col-auto" placeholder="地圖連結..." name="google_map" />
+  </div>
+  <div class="mb-1">
+    <label for="rating" class="form-label">餐廳評價</label>
+    <input type="text" id="rating" class="col-auto" placeholder="4.5..." name="rating" />
+  </div>
+  <div class="mb-1">
+    <label for="description" class="form-label">餐廳簡介</label>
+    <input type="text" id="rdescription" class="col-auto" placeholder="以頂級食材進行..." name="description" />
+  </div>
+  <div>
+    <button type="submit" class="mb-5">Create</button>
+  </div>
+</form>
