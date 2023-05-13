@@ -4,15 +4,14 @@ const mongoose = require('mongoose') //載入mongoose
 const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
-const restaurantList = require('./restaurant.json')
+const restaurant = require('./models/restaurant')
+// const restaurantList = require('./restaurant.json')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 //連線到資料庫
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-
-
 
 //連線狀態
 const db = mongoose.connection
@@ -23,11 +22,22 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+// 告訴express將樣板引擎交給express-handlebars
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+app.use(express.static('public'))
 
+
+//瀏覽全部餐廳
 app.get('/', (req, res) => {
-  res.render('index', { restaurant: restaurantList.results })
+  restaurant.find()
+    .lean()
+    .then(restaurantData => res.render('index', { restaurantData }))
+    .catch(error => console.log('error!'))
 })
 
+
+//瀏覽餐廳資訊
 app.get('/restaurants/:id', (req, res) => {
   // console.log(req.params.id)
   const restaurant = restaurantList.results.find(
@@ -46,10 +56,6 @@ app.get('/search', (req, res) => {
 })
 
 
-// 告訴express將樣板引擎交給express-handlebars
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
-app.use(express.static('public'))
 
 
 app.listen(port, () => {
