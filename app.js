@@ -51,7 +51,6 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log('新增error!'))
 })
 
-
 //瀏覽一家餐廳資訊
 app.get(`/restaurants/:id`, (req, res) => {
   const id = req.params.id
@@ -60,6 +59,25 @@ app.get(`/restaurants/:id`, (req, res) => {
     .then(restaurantData => (res.render('show', { restaurantData })))
     .catch(error => console.log('餐廳資訊error!'))
 })
+
+//修改餐廳資訊
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  restaurant.findById(id)
+    .lean()
+    .then(restaurantData => (res.render('edit', { restaurantData })))
+    .catch(error => console.log('edit error!'))
+})
+//修改的資料更新資料庫
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  restaurant.findByIdAndUpdate(id, req.body)
+    .then(() => res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log('edit error!'))
+})
+
+
+
 
 app.get('/search', (req, res) => {
   // console.log('req.query', req.query)

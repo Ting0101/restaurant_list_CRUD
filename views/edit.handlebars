@@ -1,0 +1,50 @@
+<head>
+  <link rel="stylesheet" href="/stylesheets/all.css">
+</head>
+
+<h1 class="mb-1 restaurant-show-title">編輯餐廳</h1>
+<form action="/restaurants/{{restaurantData._id}}/edit" method="POST" class=" text-center">
+  <div class="mb-1">
+    <label for="name" class="form-label">餐廳名稱</label>
+    <input type="text" id="name" class="col-auto" placeholder="" name="name" value={{restaurantData.name}} required>
+  </div>
+  <div class="mb-1">
+    <label for="name_en" class="form-label">英文店名</label>
+    <input type="text" id="name_en" class="col-auto" placeholder="" name="name_en" value={{restaurantData.name_en}}>
+  </div>
+  <div class="mb-1">
+    <label for="category" class="form-label">餐廳類型</label>
+    <input type="text" id="category" class="col-auto" placeholder="" name="category" value={{restaurantData.category}}
+      required>
+  </div>
+  <div class="mb-1">
+    <label for="image" class="form-label">餐廳照片</label>
+    <input type="text" id="image" class="col-auto" placeholder="" name="image" value={{restaurantData.image}}>
+  </div>
+  <div class="mb-1">
+    <label for="location" class="form-label">餐廳地址</label>
+    <input type="text" id="location" class="col-auto" placeholder="" name="location" value={{restaurantData.location}}
+      required />
+  </div>
+  <div class="mb-1">
+    <label for="phone" class="form-label">餐廳電話</label>
+    <input type="text" id="location" class="col-auto" value={{restaurantData.phone}} name="phone" required />
+  </div>
+  <div class="mb-1">
+    <label for="google_map" class="form-label">地圖連結</label>
+    <input type="text" id="google_map" class="col-auto" placeholder="" name="google_map"
+      value={{restaurantData.google_map}}>
+  </div>
+  <div class="mb-1">
+    <label for="rating" class="form-label">餐廳評價</label>
+    <input type="text" id="rating" class="col-auto" placeholder="" name="rating" value={{restaurantData.rating}}>
+  </div>
+  <div class="mb-1">
+    <label for="description" class="form-label">餐廳簡介</label>
+    <input type="text" id="rdescription" class="col-auto" placeholder="" name="description"
+      value={{restaurantData.description}}>
+  </div>
+  <div>
+    <button type="submit" class="mb-5">Edit</button>
+  </div>
+</form>
