@@ -40,10 +40,12 @@
                 <i class="fas fa-star fa-xs"></i>
               </span>
             </div>
-            <div class="text-end">
+            <div class="text-end mb-1">
               <a class="text-secondary" href="./restaurants/{{ this._id }}/edit">Edit</a>
               <a class="text-secondary" href="./restaurants/{{ this._id }}">Detail</a>
-              <a class="text-secondary" href="./restaurants/{{ this._id }}">Delet</a>
+              <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+                <button class="btn btn-sm-light">Delete</button>
+              </form>
             </div>
           </div>
         </a>

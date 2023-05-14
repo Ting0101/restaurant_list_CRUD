@@ -76,19 +76,29 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log('edit error!'))
 })
 
-
-
-
-app.get('/search', (req, res) => {
-  // console.log('req.query', req.query)
-  const keyword = req.query.keyword
-  const restaurants = restaurantList.results.filter(restaurants => {
-    return restaurants.category.includes(keyword) || restaurants.name.includes(keyword)
-  })
-  res.render('index', { restaurant: restaurants })
+//刪除餐廳
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log('delete error!'))
 })
 
-
+//搜尋餐廳
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword.toLowerCase()
+  restaurant.find()
+    .lean()
+    .then(restaurants => {
+      const restaurantFiltered = restaurants.filter(
+        restaurant =>
+          restaurant.name.toLowerCase().includes(keyword) || restaurant.category.toLowerCase().includes(keyword))
+      console.log(restaurantFiltered)
+      res.render('index', { restaurantData: restaurantFiltered })
+    })
+    .catch(error => console.log('search error!'))
+})
 
 
 app.listen(port, () => {
