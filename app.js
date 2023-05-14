@@ -94,7 +94,7 @@ app.get('/search', (req, res) => {
       const restaurantFiltered = restaurants.filter(
         restaurant =>
           restaurant.name.toLowerCase().includes(keyword) || restaurant.category.toLowerCase().includes(keyword))
-      console.log(restaurantFiltered)
+      // console.log(restaurantFiltered)
       res.render('index', { restaurantData: restaurantFiltered })
     })
     .catch(error => console.log('search error!'))
