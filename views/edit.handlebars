@@ -7,47 +7,47 @@
     <form action="/restaurants/{{restaurantData._id}}/edit" method="POST" class=" text-center">
       <div class="mb-1">
         <label for="name" class="form-label fs-5 text text-danger">餐廳名稱</label>
-        <input type="text" id="name" class="col-auto fs-5" placeholder="" name="name" value={{restaurantData.name}}
+        <input type="text" id="name" class="col-auto fs-5" placeholder="" name="name" value="{{restaurantData.name}}"
           required>
       </div>
       <div class="mb-1">
         <label for="name_en" class="form-label fs-5 text text-danger">英文店名</label>
         <input type="text" id="name_en" class="col-auto fs-5" placeholder="" name="name_en"
-          value={{restaurantData.name_en}}>
+          value="{{restaurantData.name_en}}">
       </div>
       <div class="mb-1">
         <label for="category" class="form-label fs-5 text text-danger">餐廳類型</label>
         <input type="text" id="category" class="col-auto fs-5" placeholder="" name="category"
-          value={{restaurantData.category}} required>
+          value="{{restaurantData.category}}" required>
       </div>
       <div class="mb-1">
         <label for="image" class="form-label fs-5 text text-danger">餐廳照片</label>
-        <input type="url" id="image" class="col-auto fs-5" placeholder="" name="image" value={{restaurantData.image}}>
+        <input type="url" id="image" class="col-auto fs-5" placeholder="" name="image" value="{{restaurantData.image}}">
       </div>
       <div class="mb-1">
         <label for="location" class="form-label fs-5 text text-danger">餐廳地址</label>
         <input type="text" id="location" class="col-auto fs-5" placeholder="" name="location"
-          value={{restaurantData.location}} required />
+          value="{{restaurantData.location}}" required />
       </div>
       <div class="mb-1">
         <label for="phone" class="form-label fs-5 text text-danger">餐廳電話</label>
-        <input type="tel" pattern="[0-9]{2}-[0-9]{8}" id="location" class="col-auto fs-5" placeholder=""
-          value={{restaurantData.phone}} name="phone" required />
+        <input type="tel" id="phone" class="col-auto fs-5" placeholder="" value="{{restaurantData.phone}}" name="phone"
+          required />
       </div>
       <div class="mb-1">
         <label for="google_map" class="form-label fs-5 text text-danger">地圖連結</label>
         <input type="url" id="google_map" class="col-auto fs-5" placeholder="" name="google_map"
-          value={{restaurantData.google_map}}>
+          value="{{restaurantData.google_map}}">
       </div>
       <div class="mb-1">
         <label for="rating" class="form-label fs-5 text text-danger">餐廳評價</label>
         <input type="number" step="any" min="0" id="rating" class="col-auto fs-5" placeholder="" name="rating"
-          value={{restaurantData.rating}}>
+          value="{{restaurantData.rating}}">
       </div>
       <div class="mb-1">
         <label for="description" class="form-label fs-5 text text-danger">餐廳簡介</label>
         <input type="text" id="rdescription" class="col-auto fs-5" placeholder="" name="description"
-          value={{restaurantData.description}}>
+          value="{{restaurantData.description}}">
       </div>
       <div>
         <button type="submit" class="btn btn-danger mb-5">Edit</button>
